@@ -13610,7 +13610,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2060817566}
   - component: {fileID: 2060817565}
-  - component: {fileID: 2060817567}
   m_Layer: 0
   m_Name: manager
   m_TagString: Untagged
@@ -13707,19 +13706,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2060817567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060817564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb03d422cd5d5e4b93c1197dab96ad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bundleURL: https://raw.githubusercontent.com/hamzalangah/Bus-Simulator-Modern-Bus-Game/b7f9a3be8994bdac85772bcf1313ea7036f0cfcf/BuiltScenes/gameplay.bundle
 --- !u!1 &2072335246
 GameObject:
   m_ObjectHideFlags: 0
