@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - TurnLeft
+  - TurnRight
+  - GoStraight
+  - gateopen
+  - Pick
+  - Drop
+  - destructibleProp
+  - zoogate
+  - FirstCutScene
+  - LastCutScene
+  - DropLevel4
+  - DropLevel4One
+  - Dparking10
+  - Dparking11
+  - Dparking12
+  - Dparking13
+  - Dparking14
+  - Dparking15
+  - Dparking16
+  - Dparking17
+  - Vehicle
+  - TrafficLight
+  - peoplecrossing
+  - firstsmallcutscene
+  - gateopen2
+  - marketscene
+  - water
+  - accidentScene
+  - gateopen3
+  - endpoint
+  - Pickup
+  - CheckPoint
+  - SLAccident
+  - TLCheckPoint
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Road
+  - Buildings
+  - Obstacle
+  - Traffic
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1610455811
+    locked: 0
