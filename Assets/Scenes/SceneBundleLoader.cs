@@ -9,19 +9,8 @@ public class SceneBundleLoader : MonoBehaviour
     // URL to the AssetBundle on GitHub
     string bundleURL = "https://raw.githubusercontent.com/hamzalangah/Bus-Simulator-Modern-Bus-Game/b7f9a3be8994bdac85772bcf1313ea7036f0cfcf/BuiltScenes/gameplay.bundle";
 
-    // Renderer reference (make sure to assign this in the Unity Inspector)
-    public Renderer myRenderer;
-
     void Start()
     {
-        // If you need to set a material to a renderer, make sure 'myRenderer' is assigned
-        if (myRenderer != null)
-        {
-            Material mat = new Material(Shader.Find("Standard")); // Replace with your shader if needed
-            myRenderer.material = mat;
-        }
-
-        // Start the coroutine to download and load the scene
         StartCoroutine(DownloadAndLoadScene());
     }
 
@@ -41,30 +30,41 @@ public class SceneBundleLoader : MonoBehaviour
             yield break;
         }
 
-        // Get the AssetBundle content
         AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
-
-        // Get all scenes in the AssetBundle
         string[] scenes = bundle.GetAllScenePaths();
         Debug.Log("Scenes found in bundle: " + string.Join(", ", scenes));
 
         if (scenes.Length > 0)
         {
-            // Get the first scene from the AssetBundle
             string scenePath = scenes[0];
             string sceneName = Path.GetFileNameWithoutExtension(scenePath);
             Debug.Log("Loading scene: " + sceneName);
 
-            // Load the scene asynchronously from the bundle
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
-            while (!asyncOperation.isDone)
-            {
-                yield return null;
-            }
+            yield return asyncOperation;
+
+            // Fix pink shaders AFTER scene loads
+            FixPinkShaders();
         }
         else
         {
             Debug.LogError("No scenes found in the bundle!");
         }
+    }
+
+    void FixPinkShaders()
+    {
+        Renderer[] renderers = FindObjectsOfType<Renderer>();
+        Material defaultMat = new Material(Shader.Find("Standard")); // Or "Mobile/Diffuse"
+
+        foreach (Renderer r in renderers)
+        {
+            if (r.sharedMaterial != null && (r.sharedMaterial.shader == null || r.sharedMaterial.color == Color.magenta))
+            {
+                r.material = defaultMat;
+            }
+        }
+
+        Debug.Log("Pink shaders (if any) replaced with default material.");
     }
 }
