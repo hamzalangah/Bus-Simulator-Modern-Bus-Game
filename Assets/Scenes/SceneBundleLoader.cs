@@ -7,7 +7,7 @@ using System.IO;
 public class SceneBundleLoader : MonoBehaviour
 {
     // URL to the AssetBundle on GitHub
-    string bundleURL = "https://raw.githubusercontent.com/hamzalangah/Bus-Simulator-Modern-Bus-Game/b7f9a3be8994bdac85772bcf1313ea7036f0cfcf/BuiltScenes/gameplay.bundle";
+    string bundleURL = "https://github.com/hamzalangah/Bus-Simulator-Modern-Bus-Game/raw/main/BuiltBundles/gameplay";
 
     void Start()
     {

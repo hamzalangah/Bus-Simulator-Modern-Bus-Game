@@ -1,16 +1,25 @@
 using UnityEditor;
+using UnityEngine;
 using System.IO;
 
-public class FullBundleBuilder
+public class SceneBundleBuilder
 {
-    [MenuItem("Tools/Build All Asset Bundles")]
-    static void BuildAllBundles()
+    [MenuItem("Tools/Build Scene Bundle")]
+    static void BuildSceneBundle()
     {
-        string bundleDir = "Assets/../BuiltBundles";
-        if (!Directory.Exists(bundleDir))
-            Directory.CreateDirectory(bundleDir);
+        string outputPath = Path.Combine(Application.dataPath, "../BuiltBundles");
+        if (!Directory.Exists(outputPath))
+            Directory.CreateDirectory(outputPath);
 
-        BuildPipeline.BuildAssetBundles(bundleDir, BuildAssetBundleOptions.None, BuildTarget.Android);
-        UnityEngine.Debug.Log("All bundles built at: " + bundleDir);
+        string[] scenes = { "Assets/Scenes/gameplay.unity" };
+
+        BuildPipeline.BuildPlayer(
+            scenes,
+            Path.Combine(outputPath, "gameplay"),
+            BuildTarget.Android, // or StandaloneWindows64, etc.
+            BuildOptions.BuildAdditionalStreamedScenes | BuildOptions.CompressWithLz4
+        );
+
+        Debug.Log("Scene bundle built successfully.");
     }
 }
