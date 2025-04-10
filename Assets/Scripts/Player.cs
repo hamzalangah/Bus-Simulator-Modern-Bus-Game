@@ -239,11 +239,11 @@ public class Player : MonoBehaviour
 
         if (director.state == PlayState.Playing)
         {
-             Debug.LogError("Playing");  
+            PlayableText.text = "Playing";  
         }
         else
         {
-             Debug.LogError("Not Playing");    
+            PlayableText.text = "Not Playing";  
         }
         SmallCutScenesCameras[0].SetActive(true);
         yield return new WaitForSeconds(SSDuration[0]);

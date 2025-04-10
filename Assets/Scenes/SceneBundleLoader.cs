@@ -7,7 +7,10 @@ using System.IO;
 public class SceneBundleLoader : MonoBehaviour
 {
     // URL to the AssetBundle on GitHub
-    string bundleURL = "https://github.com/hamzalangah/Bus-Simulator-Modern-Bus-Game/raw/main/BuiltBundles/gameplay";
+    string bundleURL = "https://github.com/hamzalangah/Bus-Simulator-Modern-Bus-Game/raw/refs/heads/main/BuiltBundles/gameplay";
+
+    // Add a reference to your UI Text or Slider for progress indication
+    public UnityEngine.UI.Text progressText;  // or a Slider, etc.
 
     void Start()
     {
@@ -18,19 +21,33 @@ public class SceneBundleLoader : MonoBehaviour
     {
         Debug.Log("Downloading scene bundle...");
         UnityWebRequest request = UnityWebRequestAssetBundle.GetAssetBundle(bundleURL);
-        yield return request.SendWebRequest();
+        request.SendWebRequest();
 
-#if UNITY_2020_1_OR_NEWER
+        // Loop to show download progress
+        while (!request.isDone)
+        {
+            float progress = request.downloadProgress;
+            Debug.Log($"Download Progress: {progress * 100f}%");
+
+            // Update UI Text or ProgressBar with the current progress
+            if (progressText != null)
+            {
+                progressText.text = $"Downloading: {progress * 100f:0.0}%";
+            }
+
+            yield return null;
+        }
+
+        // Check if the download was successful
         if (request.result != UnityWebRequest.Result.Success)
-#else
-        if (request.isNetworkError || request.isHttpError)
-#endif
         {
             Debug.LogError("Download failed: " + request.error);
             yield break;
         }
 
+        // Get AssetBundle content
         AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
+
         string[] scenes = bundle.GetAllScenePaths();
         Debug.Log("Scenes found in bundle: " + string.Join(", ", scenes));
 
