@@ -229,22 +229,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Rccam.SetActive(false);
         SmallCutScenes[0].GetComponent<PlayableDirector>().enabled = true;
-        PlayableDirector director = SmallCutScenes[0].GetComponent<PlayableDirector>();
-
-        Time.timeScale = 1f;  
-
-        director.playOnAwake = true;  
-
-
-        if (director.state == PlayState.Playing)
-        {
-            PlayableText.text = "Playing";  
-        }
-        else
-        {
-        director.Play();  
-            PlayableText.text = "Not Playing";  
-        }
+        PlayTimeLine();
         SmallCutScenesCameras[0].SetActive(true);
         yield return new WaitForSeconds(SSDuration[0]);
         SmallCutScenes[0].GetComponent<PlayableDirector>().enabled = false;
@@ -255,6 +240,52 @@ public class Player : MonoBehaviour
         BlackPanel.SetActive(false);
         SceneBlackPanel.SetActive(false);
     }
+    public void PlayTimeLine()
+    {
+        // Get the PlayableDirector from the SmallCutScenes GameObject
+        PlayableDirector director = SmallCutScenes[0].GetComponent<PlayableDirector>();
+
+        // Check if the director or playableAsset is missing
+        if (director == null)
+        {
+            PlayableText.text = "PlayableDirector not found!";
+            Debug.LogError("PlayableDirector not found on the GameObject.");
+            return;
+        }
+
+        if (director.playableAsset == null)
+        {
+            PlayableText.text = "Playable not found!";
+            Debug.LogError("Playable not found on the PlayableDirector.");
+            return;
+        }
+
+        // Display details of PlayableDirector components
+        string directorDetails = $"Playable: {director.playableAsset?.name}\n" +
+                                  $"Update Method: {director.timeUpdateMode}\n" +
+                                  $"Play On Awake: {director.playOnAwake}\n" +
+                                  $"Wrap Mode: {director.extrapolationMode}\n" +
+                                  $"Initial Time: {director.initialTime}\n" +
+                                  $"Current Time: {director.time}";
+
+        // Reset time scale to normal to allow the timeline to play
+        Time.timeScale = 1f;
+
+        // Force play the timeline
+        director.playOnAwake = true;
+
+        // If the timeline is already playing, show "Playing", otherwise start it
+        if (director.state == PlayState.Playing)
+        {
+            PlayableText.text = directorDetails + "\nPlaying";
+        }
+        else
+        {
+            director.Play();  // Start the timeline
+            PlayableText.text = directorDetails + "\nNot Playing, Now Playing";
+        }
+    }
+
 
     public IEnumerator SSCutSceen()
     {
