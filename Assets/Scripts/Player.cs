@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     public float speed, moveSpeed;
     public float[] FirstDuration, LastDuration, FSDuration, SSDuration;
     public int ArrowsIndex = 0, dropIndex = 0, ArrowsIndexL5 = 0, CheckPointsIndex = 0;
+
+    public Text PlayableText;
     //  public float speed = 10, moveSpeed = 10;
     public void OnTriggerEnter(Collider other)
     {
@@ -167,10 +169,6 @@ public class Player : MonoBehaviour
         {
             FailedScreen.SetActive(true);
         }
-        //      if(other.gameObject.tag == "Barrier")
-        //      {
-        //          barrier.SetBool("barrier", true);
-        //      }
         if (other.gameObject.tag == "Pick")
         {
 
@@ -183,44 +181,6 @@ public class Player : MonoBehaviour
             StartCoroutine(DropPassengers());
 
         }
-        //      if (other.gameObject.tag == "ElephantScene")
-        //      {
-        //          StartCoroutine(ElephantScene());
-        //      }
-        //      if(other.gameObject.tag == "checkpoint")
-        //      {
-        //          StartCoroutine(CheckpointScene());
-        //      }
-        //      if(other.gameObject.tag == "CowScene")
-        //      {
-        //          StartCoroutine(CowScene());
-        //      }
-        //      if(other.gameObject.tag == "FishingScene")
-        //      {
-        //          StartCoroutine(FishingScene());
-        //      }
-        //      if(other.gameObject.tag == "CoupleScene")
-        //      {
-        //          StartCoroutine(CoupleScene());
-        //      }
-        //      if(other.gameObject.tag == "PickMover" || other.gameObject.tag == "DropMover")
-        //      {
-        //          StartCoroutine(Mover());
-        //      }
-        //      if(other.gameObject.tag == "ShipSound")
-        //      {
-        //          siphorn.Play();
-        //      } 
-        //      if(other.gameObject.tag == "LionScene")
-        //      {
-        //          StartCoroutine(LionScene());
-        //          
-        //      }
-        //      if(other.gameObject.tag == "StoneScene")
-        //      {
-        //          SmallScene[6].GetComponent<PlayableDirector>().enabled = true;
-        //      }
-        //  }
     }
     public IEnumerator TLCheckPoint()
     {
@@ -269,6 +229,22 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Rccam.SetActive(false);
         SmallCutScenes[0].GetComponent<PlayableDirector>().enabled = true;
+        PlayableDirector director = SmallCutScenes[0].GetComponent<PlayableDirector>();
+
+        Time.timeScale = 1f;  
+
+        director.playOnAwake = true;  
+
+        director.Play();  
+
+        if (director.state == PlayState.Playing)
+        {
+            PlayableText.text = "Playing";  
+        }
+        else
+        {
+            PlayableText.text = "Not Playing";  
+        }
         SmallCutScenesCameras[0].SetActive(true);
         yield return new WaitForSeconds(SSDuration[0]);
         SmallCutScenes[0].GetComponent<PlayableDirector>().enabled = false;
