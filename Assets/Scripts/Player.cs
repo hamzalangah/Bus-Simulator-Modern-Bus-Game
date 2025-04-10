@@ -235,7 +235,6 @@ public class Player : MonoBehaviour
 
         director.playOnAwake = true;  
 
-        director.Play();  
 
         if (director.state == PlayState.Playing)
         {
@@ -243,6 +242,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+        director.Play();  
             PlayableText.text = "Not Playing";  
         }
         SmallCutScenesCameras[0].SetActive(true);
