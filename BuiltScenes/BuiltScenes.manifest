@@ -1,7 +1,0 @@
-ManifestFileVersion: 0
-CRC: 1688580381
-AssetBundleManifest:
-  AssetBundleInfos:
-    Info_0:
-      Name: gameplaybundle
-      Dependencies: {}
