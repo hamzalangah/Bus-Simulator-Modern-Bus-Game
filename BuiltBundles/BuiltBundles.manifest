@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 4168797949
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: gameplay
+      Dependencies: {}
+    Info_1:
+      Name: cutscenesbundle
+      Dependencies: {}

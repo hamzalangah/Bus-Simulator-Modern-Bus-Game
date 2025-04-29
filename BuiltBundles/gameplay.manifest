@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 3203491799
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2845bd5a61a5f41c9bd1b8e8cd4f5992
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f9f3d136959ac0e7043e721e899342fb
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 2845bd5a61a5f41c9bd1b8e8cd4f5992
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/coconutcc.mat
+Dependencies: []

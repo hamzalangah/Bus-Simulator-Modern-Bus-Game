@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     public int ArrowsIndex = 0, dropIndex = 0, ArrowsIndexL5 = 0, CheckPointsIndex = 0;
 
     public Text PlayableText;
+    public GameObject[] timeLines;
     //  public float speed = 10, moveSpeed = 10;
     public void OnTriggerEnter(Collider other)
     {

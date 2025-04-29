@@ -1,0 +1,65 @@
+ManifestFileVersion: 0
+CRC: 273356040
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d6be39ab9b7c5cf1bf3599b414b4f886
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e24244c3db9312f999688551aa5a3cf0
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: d6be39ab9b7c5cf1bf3599b414b4f886
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8b22792c3b570444eb18cb78c2af3a74, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d21dcc2386d650c4597f3633c75a1f98, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 21bf7f712d84d26478ebe6a299f21738, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.Timeline
+  ClassName: UnityEngine.Timeline.AudioClipProperties
+- AssemblyName: Unity.Timeline
+  ClassName: UnityEngine.Timeline.AudioMixerProperties
+- AssemblyName: Unity.Timeline
+  ClassName: UnityEngine.Timeline.MarkerList
+- AssemblyName: Unity.Timeline
+  ClassName: UnityEngine.Timeline.TimelineAsset/EditorSettings
+- AssemblyName: Unity.Timeline
+  ClassName: UnityEngine.Timeline.TimelineClip
+Assets:
+- Assets/CutScenes/SmallScene/SLAccident.playable
+- Assets/CutScenes/SmallScene/FifthLStadium.playable
+- Assets/CutScenes/SmallScene/TLCheckPoint.playable
+- Assets/CutScenes/2ndLL.playable
+- Assets/CutScenes/SmallScene/FifthLSuperMarket.playable
+- Assets/CutScenes/4rthLF.playable
+- Assets/CutScenes/3rdLF.playable
+- Assets/CutScenes/SmallScene/TLAccident.playable
+- Assets/CutScenes/5thLF.playable
+- Assets/CutScenes/SmallScene/FLBeach.playable
+- Assets/CutScenes/2ndLF.playable
+- Assets/CutScenes/1stLL.playable
+- Assets/CutScenes/SmallScene/FifthLZoo.playable
+- Assets/CutScenes/SmallScene/SLMarket.playable
+- Assets/CutScenes/3rdLL.playable
+- Assets/CutScenes/1stLF.playable
+- Assets/CutScenes/SmallScene/FifthLMarket.playable
+- Assets/CutScenes/SmallScene/FLPetrolPump.playable
+Dependencies: []
